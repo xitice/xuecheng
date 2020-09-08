@@ -47,11 +47,11 @@ public class CmsPageRepositoryTest {
     @Test
     public void testUpdate() {
         //查询对象
-        Optional<CmsPage> optional = cmsPageRepository.findById("5b4b1d8bf73c6623b03f8cec");
+        Optional<CmsPage> optional = cmsPageRepository.findById("5abefd525b05aa293098fca6");
         if(optional.isPresent()){
             CmsPage cmsPage = optional.get();
             //设置要修改值
-            cmsPage.setPageAliase("test01");
+            cmsPage.setPageAliase("ccc");
             //...
             //修改
             CmsPage save = cmsPageRepository.save(cmsPage);
