@@ -24,7 +24,7 @@ public class CmsPageController implements CmsPageControllerApi {
 
     @Override
     @GetMapping("/list/{page}/{size}")
-    public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size") int size, QueryPageRequest queryPageRequest) {
+    public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size")int size, QueryPageRequest queryPageRequest) {
 
 /*        //暂时用静态数据
         //定义queryResult
@@ -39,12 +39,12 @@ public class CmsPageController implements CmsPageControllerApi {
         QueryResponseResult queryResponseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);
         return queryResponseResult;*/
         //调用service
-        return pageService.findList(page, size, queryPageRequest);
+        return pageService.findList(page,size,queryPageRequest);
     }
 
     @Override
     @PostMapping("/add")
-    public CmsPageResult add(@RequestBody CmsPage cmsPage) {
+    public CmsPageResult add(@RequestBody  CmsPage cmsPage) {
         return pageService.add(cmsPage);
     }
 
@@ -56,8 +56,8 @@ public class CmsPageController implements CmsPageControllerApi {
 
     @Override
     @PutMapping("/edit/{id}")//这里使用put方法，http 方法中put表示更新
-    public CmsPageResult edit(@PathVariable("id") String id, @RequestBody CmsPage cmsPage) {
-        return pageService.update(id, cmsPage);
+    public CmsPageResult edit(@PathVariable("id")String id, @RequestBody CmsPage cmsPage) {
+        return pageService.update(id,cmsPage);
     }
 
     @Override
